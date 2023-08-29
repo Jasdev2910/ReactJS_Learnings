@@ -1,0 +1,27 @@
+{
+  "name": "talk-is-cheap",
+  "version": "1.0.0",
+  "description": "Learning about Props in raect",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jasdev2910/ReactJS_Learnings.git"
+  },
+  "author": "Jasdev Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jasdev2910/ReactJS_Learnings/issues"
+  },
+  "homepage": "https://github.com/Jasdev2910/ReactJS_Learnings#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
