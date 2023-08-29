@@ -1,5 +1,12 @@
 
-## Assignment
+# Assignment
+
+## Screenshots
+
+![App Screenshot](./src/assets/Screenshot1.png)
+
+![App Screenshot](./src/assets/Screenshot2.png)
+
 
 #### Q1. Is JSX mandatory for React ?
 
