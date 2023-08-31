@@ -1,10 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import Logo from "./src/assets/logo.png"
-import CartImg from "./src/assets/cart.png"
-import search from "./src/assets/search.png"
-
-const resList = [
+export const resList = [
     {
         "info": {
             "id": "96566",
@@ -1345,60 +1339,3 @@ const resList = [
             "type": "WEBLINK"
         }}
 ]
-
-const Header = () => {
-    return(
-        <nav className="nav-bar">
-            <img src= {Logo} alt="logo"></img>
-            <h1>Food Hub</h1>
-            <ul>
-                <li>Offers</li>
-                <li>Sign In</li>
-                <li>Help</li>
-                <img className="cart-img" alt="cart-logo" src={CartImg} />
-            </ul>
-        </nav>
-    )
-}
-
-const Card = (props) => {
-   const {resData} = props;
-   const {name,avgRating,cuisines,areaName} = resData?.info;
-
-    return(
-            <div className="card">
-                <img alt="img" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + resData.info.cloudinaryImageId}/>
-                <h2>{name}</h2>
-                <h3>{avgRating}/5</h3>
-                <h4>{cuisines.join(", ")}</h4>
-                <h4>{areaName}</h4>
-            </div>
-    )
-}
-
-const Body = () => {
-    return(
-        <div className="container">
-            <div className="search-container">
-                <input type="text" placeholder="Search Restauraunts"></input>
-                <button type="search"><img alt="search-icon" src={search}/></button>
-            </div>
-            <h2 className="heading">Restauraunts in Your Area</h2>
-            <div className="card-container">
-            {resList.map((restaurant) => ( <Card key = {restaurant.info.id} resData = {restaurant} />))}
-            </div>
-        </div>
-    )
-}
-
-const App = () => {
-    return(
-        <div>
-            <Header />
-            <Body />
-        </div>
-    )
-}
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App/>);
