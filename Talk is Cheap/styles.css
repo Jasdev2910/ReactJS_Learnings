@@ -38,6 +38,22 @@
     display: flex;
     flex-direction: column;
 }
+.filter-btn{
+    position: absolute;
+    width: 100px;
+    left: 90%;
+    top: 100px;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 50px;
+    border: 0;
+    outline: none;
+    background: #EEEEEE;
+}
+.filter-btn:hover{
+    background: #272829;
+    color: #fff;
+}
 .search-container{
     display: flex;
     justify-content: space-between;
