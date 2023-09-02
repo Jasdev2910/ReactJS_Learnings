@@ -1,10 +1,23 @@
 import Card from "./Card";
 import search from "../assets/search.png";
 import { resList } from "../utils/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Body = () => {
     const [listOfRes, setListOfRes] = useState(resList);
+
+    useEffect(() => {
+        console.log("useEffect called");
+        fetchData();
+    }, []);
+    console.log("Body rendered");
+    const fetchData = async () => {
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1958705&lng=81.28973309999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const json = await data.json();
+
+        console.log(json);
+        setListOfRes(json?.data?.cards[1]?.groupedCard?.cardGroupMap?.RESTAURANT?.cards);
+    }
 
     return(
         <div className="container">
@@ -26,7 +39,7 @@ const Body = () => {
             </div>
             <h2 className="heading">Restauraunts in Your Area</h2>
             <div className="card-container">
-            {listOfRes.map((restaurant) => ( <Card key = {restaurant.info.id} resData = {restaurant} />))}
+            {listOfRes.map((restaurant) => ( <Card key = {restaurant.card.card.info.id} resData = {restaurant} />))}
             </div>
         </div>
     )
