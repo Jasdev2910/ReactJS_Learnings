@@ -748,3 +748,65 @@ Here's how the diffing algorithm works conceptually:
 6. **Keyed Lists:** React places special emphasis on keyed lists (e.g., lists of components or elements) to efficiently update them. Using unique keys for list items helps React accurately determine which items have been added, removed, or reordered.
 
 By performing this process efficiently, React minimizes the number of DOM manipulations needed when changes occur in the UI. This results in a smoother user experience and better overall performance, especially in complex applications. The diffing algorithm is a crucial part of what makes React an efficient and powerful library for building user interfaces.
+
+
+## useEffect Hook
+
+The `useEffect` hook is a fundamental part of React's functional component lifecycle. It allows you to perform side effects in your components, such as data fetching, DOM manipulation, and more, in a declarative and controlled way. You can think of it as a replacement for lifecycle methods like `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` in class components.
+
+Here's how you can use the `useEffect` hook in a functional component:
+
+```jsx
+import React, { useState, useEffect } from 'react';
+
+function MyComponent() {
+  const [data, setData] = useState(null);
+
+  // The useEffect hook takes two arguments:
+  // 1. A function to execute the side effect.
+  // 2. An array of dependencies that determines when the effect runs.
+
+  useEffect(() => {
+    // This function will run after the component has rendered.
+
+    // You can perform your side effects here, such as data fetching.
+
+    // For example, let's simulate fetching data from an API:
+    fetch('https://api.example.com/data')
+      .then((response) => response.json())
+      .then((result) => {
+        setData(result);
+      });
+
+    // If you want to perform cleanup when the component unmounts,
+    // return a function from useEffect.
+    return () => {
+      // This cleanup function will run when the component is unmounted.
+      // You can use it to unsubscribe from subscriptions, cancel timers, etc.
+    };
+  }, []); // The empty array means this effect has no dependencies, so it runs once after initial render.
+
+  return (
+    <div>
+      {data ? (
+        <p>Data: {data}</p>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+  );
+}
+
+export default MyComponent;
+```
+
+In the example above:
+
+1. We import `useEffect` from the `react` library.
+2. Inside the `MyComponent` functional component, we declare a state variable `data` using the `useState` hook.
+3. We use the `useEffect` hook to perform a side effect, which is fetching data from an API. The effect runs after the initial render because we provided an empty dependency array (`[]`).
+4. Inside the effect function, we fetch data and update the `data` state when the data is received.
+5. If you need to clean up resources when the component unmounts, you can return a cleanup function from `useEffect`.
+
+You can also specify dependencies in the dependency array to control when the effect should run based on changes to specific props or state variables. If the array is empty, the effect runs only after the initial render and when the component unmounts. If you omit the array, the effect runs after every render.
+
