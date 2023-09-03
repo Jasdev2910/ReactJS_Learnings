@@ -7,6 +7,8 @@
 
 ![App Screenshot](./src/assets/Screenshot2.png)
 
+![App Screenshot](./src/assets/Screenshot3.png)
+
 
 #### Q1. Is JSX mandatory for React ?
 
