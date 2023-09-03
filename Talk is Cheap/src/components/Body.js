@@ -6,24 +6,26 @@ import { useState, useEffect } from "react";
 const Body = () => {
     const [listOfRes, setListOfRes] = useState(resList);
 
-    useEffect(() => {
-        console.log("useEffect called");
+    useEffect( () => {
         fetchData();
+        console.log("useeffect called");
     }, []);
-    console.log("Body rendered");
-    const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1958705&lng=81.28973309999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-        const json = await data.json();
 
-        console.log(json);
-        setListOfRes(json?.data?.cards[1]?.groupedCard?.cardGroupMap?.RESTAURANT?.cards);
+    const fetchData = async () => {
+    const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.196971&lng=81.289519&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    const json = await response.json();
+    console.log(json);
+    setListOfRes(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        console.log(typeof(listOfRes));
     }
+
+    console.log("body called");
 
     return(
         <div className="container">
             <button className="filter-btn" onClick={() => {
                 const newResList = listOfRes.filter(
-                    (res) => res.info.avgRating > 4.3);
+                    (res) => res.info.avgRating > 4);
                     console.log(newResList);
                 setListOfRes(newResList);
             }}>Filter</button>
@@ -39,7 +41,7 @@ const Body = () => {
             </div>
             <h2 className="heading">Restauraunts in Your Area</h2>
             <div className="card-container">
-            {listOfRes.map((restaurant) => ( <Card key = {restaurant.card.card.info.id} resData = {restaurant} />))}
+            {listOfRes.map((restaurant) => ( <Card key = {restaurant.info.id} resData = {restaurant} />))}
             </div>
         </div>
     )
