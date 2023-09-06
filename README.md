@@ -850,16 +850,17 @@ React Router can be provided to the entire application using the <RouterProvider
 
 It will provide the routing configuration to our App.
 
-### useRouteError
+### useRouteError Hook
 
 This hook gives us more information about the error occured in webpage.
+We can use this information to show more specific error on the Error component.
 
-### <Link />
+### `<Link />`
 
-A <Link> is an element that lets the user navigate to another page by clicking or tapping on it. In react-router-dom, a <Link> renders an accessible <a> element with a real href that points to the resource it's linking to. This means that things like right-clicking a <Link> work as you'd expect. You can use <Link reloadDocument> to skip client side routing and let the browser handle the transition normally (as if it were an <a href>).
+A `<link>` is an element that lets the user navigate to another page by clicking or tapping on it. In react-router-dom, a `<link>` renders an accessible `<a>` element with a real href that points to the resource it's linking to. This means that things like right-clicking a `<link>` work as you'd expect. You can use `<Link reloadDocument>` to skip client side routing and let the browser handle the transition normally (as if it were an `<a href>`).
 
-A relative <Link to> value (that does not begin with /) resolves relative to the parent route, which means that it builds upon the URL path that was matched by the route that rendered that <Link>. It may contain .. to link to routes further up the hierarchy. In these cases, .. works exactly like the command-line cd function; each .. removes one segment of the parent path.
+A relative `<Link to>` value (that does not begin with /) resolves relative to the parent route, which means that it builds upon the URL path that was matched by the route that rendered that `<link>`. It may contain .. to link to routes further up the hierarchy. In these cases, .. works exactly like the command-line cd function; each .. removes one segment of the parent path.
 
-### <Outlet />
+### `<Outlet />`
 
-An <Outlet> should be used in parent route elements to render their child route elements. This allows nested UI to show up when child routes are rendered. If the parent route matched exactly, it will render a child index route or nothing if there is no index route.
+An `<Outlet>` should be used in parent route elements to render their child route elements. This allows nested UI to show up when child routes are rendered. If the parent route matched exactly, it will render a child index route or nothing if there is no index route.
