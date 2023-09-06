@@ -2,44 +2,43 @@
 
 **React:**
 
-*Purpose:* 
+_Purpose:_
 
 React is a JavaScript library for building user interfaces. It provides a way to define and manage UI components, manage state and props, and handle the rendering of components.
 
-*Components:* 
+_Components:_
 
 React allows you to define components using either JavaScript classes or functional components. Components are reusable building blocks that encapsulate a piece of UI and its behavior.
 
-*Virtual DOM:* 
+_Virtual DOM:_
 
 React introduces a virtual DOM, a lightweight representation of the actual DOM. It efficiently updates and renders changes to the UI by comparing the virtual DOM with the real DOM and applying only the necessary updates.
 
-*JSX:* 
+_JSX:_
 
 React uses JSX (JavaScript XML) syntax to define components. JSX allows you to write HTML-like code within your JavaScript, making it easier to visualize and create UI structures.
 
 **ReactDOM:**
 
-*Purpose:* 
+_Purpose:_
 
 ReactDOM is a package that provides methods specifically for interacting with the actual DOM (Document Object Model) of a web page.
 
-*Rendering:*
+_Rendering:_
 
 The main function of ReactDOM is to render React components into the actual DOM. It bridges the gap between the virtual DOM managed by React and the real DOM in the browser.
 
-*ReactDOM.render():*
+_ReactDOM.render():_
 
- This function is used to render a React element or component into a DOM node. It's the entry point of your application where you start rendering your React tree.
+This function is used to render a React element or component into a DOM node. It's the entry point of your application where you start rendering your React tree.
 
- 
 ### NPM (Package Manager)
 
 • It is a package manager for JavaScript programming language and is primarily used to manage and share open-source packages of code, also known as packages or modules. These packages can include libraries, frameworks, tools, and other code components that developers can use to build applications more efficiently.
 
-• NPM is tightly integrated with Node.js, which is a runtime environment that allows you to execute JavaScript code on the server-side. 
+• NPM is tightly integrated with Node.js, which is a runtime environment that allows you to execute JavaScript code on the server-side.
 
-• NPM enables developers to easily install, update, and manage dependencies (third-party libraries and tools) required for their projects. 
+• NPM enables developers to easily install, update, and manage dependencies (third-party libraries and tools) required for their projects.
 
 • It also provides a platform for developers to publish their own packages, making them available for others to use.
 
@@ -49,49 +48,50 @@ The main function of ReactDOM is to render React components into the actual DOM.
 
 Here's how dependencies work:
 
-Importing or Including: 
+Importing or Including:
 
 In programming, you often use functions, classes, or other code components created by someone else. Rather than writing all of this code yourself, you can include or import it from external sources. These external sources are usually maintained by other developers and are often hosted in package repositories.
 
-Package Repositories: 
+Package Repositories:
 
 A package repository is a centralized place where developers publish their code components (packages) for others to use. For example, in the JavaScript ecosystem, npm (Node Package Manager) and Yarn are popular package managers that allow you to easily download and manage these packages.
 
-Dependency Management: 
+Dependency Management:
 
 When you start a new project, you specify which external packages (dependencies) your project needs in order to function properly. These dependencies are listed in a configuration file (like package.json in Node.js projects). This file also specifies the version ranges of the packages you need.
 
-Installation: 
+Installation:
 
 Once you have defined your project's dependencies, you use a package manager to install them. The package manager fetches the required packages from the package repository and installs them in your project's directory.
 
-Running the Project: 
+Running the Project:
 
 With the dependencies installed, you can now use the code from those packages in your own project.
 
-Updates and Maintenance: 
+Updates and Maintenance:
 
 As time goes on, the maintainers of the packages you're using may release updates to fix bugs, add features, or improve performance. It's important to periodically update your dependencies to benefit from these improvements. However, updating dependencies can sometimes introduce compatibility issues or require adjustments in your code.
 
 Common package managers for various programming languages include:
 
-* npm (Node Package Manager): Used for JavaScript and Node.js projects.
-* Yarn: Another package manager for JavaScript and Node.js, developed as an alternative to npm.
+- npm (Node Package Manager): Used for JavaScript and Node.js projects.
+- Yarn: Another package manager for JavaScript and Node.js, developed as an alternative to npm.
 
 Two types of Dependencies:
-* Runtime Dependencies:Runtime dependencies are the components that your application relies on to function properly when it's running or deployed in a live environment. These dependencies are essential for the core functionality of your application. They are required for the application to operate as intended and provide the desired features to users. For example, if you're building a web application, runtime dependencies might include a front-end framework like React or a back-end framework like Express.js.
 
-* Development Dependencies:Development dependencies are components that are necessary during the development and testing phases but are not required for the application to run in a production environment. These dependencies include tools, libraries, and utilities that help with tasks like testing, code linting, bundling, and development server setup. They facilitate the development process but are not included in the final deployment. An example of a development dependency is a testing library like Jest or a build tool like Webpack.
+- Runtime Dependencies:Runtime dependencies are the components that your application relies on to function properly when it's running or deployed in a live environment. These dependencies are essential for the core functionality of your application. They are required for the application to operate as intended and provide the desired features to users. For example, if you're building a web application, runtime dependencies might include a front-end framework like React or a back-end framework like Express.js.
+
+- Development Dependencies:Development dependencies are components that are necessary during the development and testing phases but are not required for the application to run in a production environment. These dependencies include tools, libraries, and utilities that help with tasks like testing, code linting, bundling, and development server setup. They facilitate the development process but are not included in the final deployment. An example of a development dependency is a testing library like Jest or a build tool like Webpack.
 
 Separating runtime and development dependencies serves several purposes:
 
-* Efficiency: It reduces the size of the final deployment package by excluding development-specific tools and dependencies that aren't needed in a live environment.
+- Efficiency: It reduces the size of the final deployment package by excluding development-specific tools and dependencies that aren't needed in a live environment.
 
-* Security: By not including development dependencies in the deployed application, potential vulnerabilities in those tools don't affect the production environment.
+- Security: By not including development dependencies in the deployed application, potential vulnerabilities in those tools don't affect the production environment.
 
-* Speed: The separation allows deployment to be faster since only the essential runtime dependencies need to be transferred to the production server.
+- Speed: The separation allows deployment to be faster since only the essential runtime dependencies need to be transferred to the production server.
 
-* Clarity: Clearly distinguishing between the two types of dependencies helps developers understand the roles of different components in the project.
+- Clarity: Clearly distinguishing between the two types of dependencies helps developers understand the roles of different components in the project.
 
 #### what is a Bundler
 
@@ -101,21 +101,21 @@ In modern web development, where applications are often built using modular and 
 
 Bundlers typically do the following:
 
-* Dependency Resolution: Bundlers analyze the codebase to determine which files depend on each other. This includes handling imports, requires, and other module loading mechanisms.
+- Dependency Resolution: Bundlers analyze the codebase to determine which files depend on each other. This includes handling imports, requires, and other module loading mechanisms.
 
-* Code Transformation: Bundlers can perform transformations on the code using tools like Babel, which allows developers to use the latest JavaScript features while ensuring compatibility with older browsers.
+- Code Transformation: Bundlers can perform transformations on the code using tools like Babel, which allows developers to use the latest JavaScript features while ensuring compatibility with older browsers.
 
-* Minification: Bundlers can remove unnecessary whitespace, comments, and perform other optimizations to reduce the size of the code.
+- Minification: Bundlers can remove unnecessary whitespace, comments, and perform other optimizations to reduce the size of the code.
 
-* Bundle Generation: The bundler combines all the relevant files into a single (or sometimes multiple) bundle(s). This bundle contains the entire application logic and dependencies, reducing the number of requests needed to load the application.
+- Bundle Generation: The bundler combines all the relevant files into a single (or sometimes multiple) bundle(s). This bundle contains the entire application logic and dependencies, reducing the number of requests needed to load the application.
 
-* Asset Management: Bundlers can also handle other types of assets, like images, fonts, and stylesheets, optimizing them for delivery.
+- Asset Management: Bundlers can also handle other types of assets, like images, fonts, and stylesheets, optimizing them for delivery.
 
 Some popular bundlers in the JavaScript ecosystem include:
 
-* Webpack: One of the most widely used bundlers, Webpack is highly configurable and supports a wide range of features beyond bundling, such as code splitting, hot module replacement, and more.
+- Webpack: One of the most widely used bundlers, Webpack is highly configurable and supports a wide range of features beyond bundling, such as code splitting, hot module replacement, and more.
 
-* Parcel: Known for its zero-config setup, Parcel offers a simple and fast way to bundle projects without requiring extensive configuration.
+- Parcel: Known for its zero-config setup, Parcel offers a simple and fast way to bundle projects without requiring extensive configuration.
 
 #### package.json & package-lock.json
 
@@ -127,13 +127,13 @@ package.json is a configuration file in JSON format that contains information ab
 
 Key purposes of package.json:
 
-* Dependency Listing: The "dependencies" and "devDependencies" sections list the runtime and development dependencies respectively. Dependencies are listed along with their version ranges or specific versions.
+- Dependency Listing: The "dependencies" and "devDependencies" sections list the runtime and development dependencies respectively. Dependencies are listed along with their version ranges or specific versions.
 
-* Scripts: You can define custom scripts that automate common tasks, such as running tests, building the project, starting a development server, and more.
+- Scripts: You can define custom scripts that automate common tasks, such as running tests, building the project, starting a development server, and more.
 
-* Project Metadata: Information about the project, its license, author, description, repository, and other metadata can be included.
+- Project Metadata: Information about the project, its license, author, description, repository, and other metadata can be included.
 
-* Version Management: package.json helps manage the versions of dependencies used in your project, ensuring consistent behavior across different environments and builds.
+- Version Management: package.json helps manage the versions of dependencies used in your project, ensuring consistent behavior across different environments and builds.
 
 package-lock.json:
 
@@ -141,27 +141,30 @@ package-lock.json is a file generated by npm when you install or update dependen
 
 Key purposes of package-lock.json:
 
-* Dependency Locking: It prevents unexpected changes to dependencies by locking their exact versions. This ensures that the same versions are used across different development and deployment environments.
+- Dependency Locking: It prevents unexpected changes to dependencies by locking their exact versions. This ensures that the same versions are used across different development and deployment environments.
 
-* Reproducible Builds: Developers and teams can achieve consistent builds, regardless of the time when dependencies were initially installed.
+- Reproducible Builds: Developers and teams can achieve consistent builds, regardless of the time when dependencies were initially installed.
 
-* Dependency Tree: It provides a complete, nested view of the resolved dependency tree, showing how different packages depend on each other.
+- Dependency Tree: It provides a complete, nested view of the resolved dependency tree, showing how different packages depend on each other.
 
 It's important to note that package.json is meant to be edited manually by developers to specify project details and dependency requirements, while package-lock.json is automatically generated by npm and should not be manually edited. Both files should be committed to version control systems to ensure consistent development across team members and environments.
-###
 
+###
 
 ## Commands learned
 
 ```bash
   npm init
 ```
+
 npm init is a command used in Node.js projects to create a package.json file. The package.json file is a metadata file that holds various information about your project, including its name, version, description, dependencies, scripts, and more.
+
 ###
 
 ```bash
   npm install -D parcel
 ```
+
 The command `npm install -D parcel` is used to install the Parcel bundler as a development dependency in your Node.js project. Parcel is a web application bundler that simplifies the process of building and bundling front-end assets like HTML, CSS, JavaScript, and other static files.
 
 Here's what the command does:
@@ -172,11 +175,13 @@ Here's what the command does:
 So, when you run `npm install -D parcel`, npm will download and install the Parcel package from the npm registry and add it to your project's `package.json` file under the `devDependencies` section. The `devDependencies` section includes packages that are used during development, but are not necessary for the final production build of your application.
 
 After Parcel is installed as a development dependency, you can use it to bundle your web application's assets by creating an appropriate configuration (like an HTML entry point and associated JavaScript and CSS files). You can then define scripts in your `package.json` file to run Parcel commands, which can include bundling, serving your application, and more.
+
 ###
 
 ```bash
   npm i react
 ```
+
 The command `npm i react` is used to install the React library as a dependency in your Node.js project. React is a popular JavaScript library for building user interfaces, particularly for web applications.
 
 Here's what the command does:
@@ -185,6 +190,7 @@ Here's what the command does:
 - `react`: This is the name of the package you want to install. In this case, you're installing the React library.
 
 When you run `npm i react`, npm will download and install the React package from the npm registry and add it to your project's `package.json` file under the `dependencies` section. The `dependencies` section includes packages that are required for your application to function correctly.
+
 ###
 
 ```bash
@@ -203,11 +209,13 @@ When you run `npm i react-dom`, npm will download and install the `react-dom` pa
 The combination of the `react` and `react-dom` packages is essential for building React applications. While the `react` package provides the core functionality for creating and managing React components, the `react-dom` package is responsible for rendering those components into the DOM and updating them efficiently as the application state changes.
 
 Once you have `react-dom` installed, you can use it in combination with the `react` package to build and render React components in your web application.
+
 ###
 
 ```bash
   npx parcel index.html
 ```
+
 The command `npx parcel index.html` is used to bundle and serve a web application using the Parcel bundler. Here's what the command does:
 
 - `npx`: This is a tool that comes with npm and is used to execute packages that are not globally installed. It allows you to run packages as if they were globally installed, even if they are not.
@@ -222,6 +230,7 @@ When you run `npx parcel index.html`, Parcel will perform the following steps:
 4. It will open your default web browser and load your application.
 
 This command is useful for quickly setting up a development environment for your web application using Parcel. Parcel will handle the bundling and serving of your assets, making it easier to focus on coding and building your application without getting bogged down in complex configuration setups.
+
 ###
 
 ```bash
@@ -277,11 +286,7 @@ const handleClick = () => {
   alert("Button clicked!");
 };
 
-const buttonElement = (
-  <button onClick={handleClick}>
-    Click me
-  </button>
-);
+const buttonElement = <button onClick={handleClick}>Click me</button>;
 ```
 
 It's important to note that JSX needs to be transpiled to regular JavaScript using tools like Babel before it can be understood by browsers, as browsers don't natively understand JSX syntax. Libraries like React typically come with build tools that handle this transformation for you.
@@ -317,14 +322,16 @@ In React, components are the building blocks of a user interface. They are reusa
 Here's an overview of React components:
 
 1. **Class Components:**
+
    - Class components are the older way of defining React components. They are defined as ES6 classes that extend the `React.Component` base class.
    - Class components have a `render` method that returns the JSX (JavaScript XML) for the component's UI.
    - They can have state (using `this.state`) and lifecycle methods (e.g., `componentDidMount`, `componentDidUpdate`) for handling side effects and component updates.
    - Class components are still in use but are less common now due to the introduction of functional components with hooks.
 
    Example of a class component:
+
    ```jsx
-   import React, { Component } from 'react';
+   import React, { Component } from "react";
 
    class MyComponent extends Component {
      render() {
@@ -334,13 +341,15 @@ Here's an overview of React components:
    ```
 
 2. **Functional Components:**
+
    - Functional components are a more modern and concise way of defining React components. They are JavaScript functions that return JSX.
    - With the introduction of React Hooks (e.g., `useState`, `useEffect`), functional components can manage state and side effects, making them more powerful and flexible.
    - Functional components are easier to read, write, and test compared to class components.
 
    Example of a functional component:
+
    ```jsx
-   import React from 'react';
+   import React from "react";
 
    function MyComponent(props) {
      return <div>Hello, {props.name}</div>;
@@ -348,23 +357,27 @@ Here's an overview of React components:
    ```
 
 3. **Props:**
+
    - Both class and functional components can receive data from their parent components through props (short for properties).
    - Props are read-only and help pass data down the component tree, allowing for dynamic rendering and customization of components.
 
    Example of using props in a component:
+
    ```jsx
    function Greeting(props) {
      return <div>Hello, {props.name}!</div>;
    }
 
    // Usage:
-   <Greeting name="John" />
+   <Greeting name="John" />;
    ```
 
 4. **Component Composition:**
+
    - React components can be composed together to build complex UIs. You can use one component within another, creating a hierarchy of components that represent different parts of your application.
 
    Example of component composition:
+
    ```jsx
    function App() {
      return (
@@ -378,12 +391,14 @@ Here's an overview of React components:
    ```
 
 5. **State Management:**
+
    - In functional components, you can use the `useState` Hook to manage local component state.
    - State allows components to store and update data that can change over time, triggering re-renders when the state changes.
 
    Example of state management with `useState`:
+
    ```jsx
-   import React, { useState } from 'react';
+   import React, { useState } from "react";
 
    function Counter() {
      const [count, setCount] = useState(0);
@@ -410,13 +425,14 @@ In React, `props` (short for "properties") are a way to pass data from a parent 
 Here's how props work in React:
 
 1. **Passing Props:**
+
    - To pass props from a parent component to a child component, you include them as attributes in the JSX when rendering the child component. These attributes are then accessible as properties in the child component.
    - You can pass any JavaScript value as a prop, including strings, numbers, objects, or even functions.
 
    ```jsx
    // ParentComponent.js
-   import React from 'react';
-   import ChildComponent from './ChildComponent';
+   import React from "react";
+   import ChildComponent from "./ChildComponent";
 
    function ParentComponent() {
      const name = "John";
@@ -425,12 +441,13 @@ Here's how props work in React:
    ```
 
 2. **Accessing Props:**
+
    - In the child component, you can access the props by defining them as function parameters in a functional component or by using the `this.props` object in a class component.
    - Once you access props, you can use them to customize the content, appearance, or behavior of the child component.
 
    ```jsx
    // ChildComponent.js
-   import React from 'react';
+   import React from "react";
 
    function ChildComponent(props) {
      return <div>Hello, {props.name}!</div>;
@@ -440,11 +457,12 @@ Here's how props work in React:
    In this example, the `name` prop is used to personalize the greeting in the `ChildComponent`.
 
 3. **Default Props:**
+
    - You can specify default values for props using the `defaultProps` property in a component. If a prop is not provided when rendering the component, the default value will be used.
 
    ```jsx
    // ChildComponent.js
-   import React from 'react';
+   import React from "react";
 
    function ChildComponent(props) {
      return <div>Hello, {props.name}!</div>;
@@ -458,6 +476,7 @@ Here's how props work in React:
    If `name` is not passed as a prop when rendering `ChildComponent`, it will default to "Guest."
 
 4. **Using Props in Components:**
+
    - Once you've passed props to a component, you can use them inside the component's JSX, JavaScript expressions, or logic to create dynamic and customizable UI elements.
 
    ```jsx
@@ -477,16 +496,16 @@ Props are a fundamental concept in React that enables you to create reusable and
 
 #### Config driven UI
 
-A "config-driven UI" refers to a user interface (UI) design approach where the behavior, appearance, and content of the UI components are primarily determined by configuration or data-driven settings rather than being hard-coded in the application's codebase. This approach offers several advantages in terms of flexibility, maintainability, and adaptability. 
+A "config-driven UI" refers to a user interface (UI) design approach where the behavior, appearance, and content of the UI components are primarily determined by configuration or data-driven settings rather than being hard-coded in the application's codebase. This approach offers several advantages in terms of flexibility, maintainability, and adaptability.
 
-## Hooks 
+## Hooks
 
 React Hooks are functions that were introduced in React 16.8 to allow functional components to manage state, side effects, and other React features that were previously available only in class components. Hooks provide a more concise and readable way to work with component logic, making it easier to reuse code and manage component state. Here are some of the most commonly used React Hooks:
 
 1. **useState:** The `useState` Hook is used to add local state management to functional components. It allows you to declare and update state variables within a functional component. For example:
 
    ```jsx
-   import React, { useState } from 'react';
+   import React, { useState } from "react";
 
    function Counter() {
      const [count, setCount] = useState(0);
@@ -507,7 +526,7 @@ React Hooks are functions that were introduced in React 16.8 to allow functional
 2. **useEffect:** The `useEffect` Hook enables you to perform side effects in functional components. You can use it for tasks like data fetching, DOM manipulation, or subscribing to data sources. It replaces lifecycle methods in class components. For example:
 
    ```jsx
-   import React, { useState, useEffect } from 'react';
+   import React, { useState, useEffect } from "react";
 
    function Example() {
      const [data, setData] = useState([]);
@@ -566,7 +585,7 @@ The `useState` hook is one of the most commonly used React hooks, and it allows 
 1. **Import React and `useState`:** Start by importing React and the `useState` hook at the beginning of your component file.
 
    ```jsx
-   import React, { useState } from 'react';
+   import React, { useState } from "react";
    ```
 
 2. **Declare a State Variable:** Inside your functional component, use the `useState` hook to declare a state variable. The `useState` function takes an initial value as its argument and returns an array with two elements: the current state value and a function to update that state value. You typically destructure these two values from the array.
@@ -575,7 +594,7 @@ The `useState` hook is one of the most commonly used React hooks, and it allows 
    function Example() {
      const [count, setCount] = useState(0); // Initialize 'count' state with an initial value of 0
    ```
-   
+
    In this example, `count` is the state variable, and `setCount` is the function to update it. The initial value of `count` is set to `0`.
 
 3. **Using the State Variable:** You can now use the `count` state variable in your component's JSX or within functions. When you want to update the state, you call the `setCount` function with the new value you want to assign to `count`. React will re-render your component and update the UI accordingly.
@@ -595,7 +614,7 @@ The `useState` hook is one of the most commonly used React hooks, and it allows 
 Here's the complete code for a simple counter component using the `useState` hook:
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -619,6 +638,7 @@ This component initializes a `count` state variable with a default value of 0 an
 In the context of React and other UI libraries/frameworks, "render" and "re-render" refer to the process of generating and updating the user interface based on changes in the application's state or props. Here's what each term means:
 
 1. **Render:**
+
    - "Render" is the initial process of creating the UI elements (e.g., HTML elements) based on the current state and props of a component.
    - When a component is first mounted or when its state/props change, React will call the component's `render` method (in class components) or re-evaluate the component's JSX (in functional components) to generate the UI elements.
    - The "render" phase is responsible for creating the virtual representation of the UI elements.
@@ -640,6 +660,7 @@ In the context of React and other UI libraries/frameworks, "render" and "re-rend
    ```
 
 2. **Re-render:**
+
    - "Re-render" occurs when React determines that a component's state or props have changed, and it needs to update the UI to reflect those changes.
    - React performs a comparison between the previous state/props and the new state/props to identify what parts of the UI need to be updated.
    - After identifying the changes, React triggers a re-render of the affected components.
@@ -666,23 +687,28 @@ The Virtual DOM (VDOM) is a concept and programming technique used by React and 
 Here's how the Virtual DOM works and why it's important:
 
 1. **Actual DOM vs. Virtual DOM:**
+
    - The actual DOM is the real structure of HTML elements that make up a web page. It represents the current state of the UI and is directly manipulated when you make changes to your web application.
    - The Virtual DOM, on the other hand, is a JavaScript representation of the actual DOM. It's a tree-like structure that contains virtual versions of all the elements in the real DOM.
 
 2. **Reconciliation and Efficiency:**
+
    - When you make changes to your application's state (e.g., updating data, responding to user interactions), these changes are reflected in the Virtual DOM, not the actual DOM.
    - React then performs a process called "reconciliation." It compares the previous Virtual DOM with the new Virtual DOM (created after state changes) to identify the differences or "diffs" between them.
    - By comparing Virtual DOM structures, React can determine exactly which parts of the real DOM need to be updated, added, or removed. This is a much more efficient approach than directly manipulating the entire DOM tree.
 
 3. **Batching and Optimization:**
+
    - React optimizes updates by batching multiple changes together. Instead of updating the real DOM for every single change, React combines multiple changes and applies them in a single batch, reducing the number of expensive DOM operations.
    - React's diffing algorithm is efficient, allowing it to update only the parts of the UI that have actually changed.
 
 4. **Improved Performance:**
+
    - The Virtual DOM helps improve the performance of web applications by minimizing the amount of work required to update the UI.
    - It also enables the use of efficient update strategies, like the "keyed reconciliation" algorithm, which efficiently handles lists of dynamically generated components.
 
 5. **Cross-Platform Compatibility:**
+
    - The Virtual DOM concept is not limited to web applications. It can be adapted for other platforms, such as mobile apps, through libraries like React Native.
 
 6. **Developer Experience:**
@@ -699,11 +725,13 @@ React Fiber is an internal reimplementation of the React core algorithm introduc
 Here's how reconciliation and React Fiber work together:
 
 1. **Reconciliation Process (Before React Fiber):**
+
    - In earlier versions of React (prior to version 16), reconciliation was a synchronous and recursive process.
    - When a component's state or props changed, React would recursively traverse the entire Virtual DOM tree to compare old and new elements, identify differences, and update the actual DOM.
    - While this approach worked well for small and medium-sized applications, it could lead to performance issues in large and complex apps, causing janky user experiences and potential frame drops.
 
 2. **React Fiber (Fiber Reconciliation):**
+
    - React Fiber introduces a more efficient and incremental approach to reconciliation.
    - It uses a data structure called a "fiber" to represent individual units of work in the reconciliation process. Fibers can be paused, resumed, and prioritized.
    - With React Fiber, the reconciliation process is split into smaller chunks or "fiber work units." React can work on these units in a prioritized manner, allowing it to respond to user interactions, animations, and other high-priority updates without blocking the main thread.
@@ -723,14 +751,17 @@ The "diffing algorithm," also known as the "reconciliation algorithm," is a fund
 Here's how the diffing algorithm works conceptually:
 
 1. **Virtual DOM Representation:**
+
    - React maintains a lightweight, virtual representation of the actual DOM, known as the Virtual DOM. This Virtual DOM is a JavaScript tree structure that mirrors the structure of the real DOM.
    - Whenever a component's state or props change, React generates a new Virtual DOM tree based on the updated component hierarchy and data.
 
 2. **Diffing Phase:**
+
    - React initiates a process known as "diffing" or "reconciliation," where it compares the previous Virtual DOM (representing the current UI) with the new Virtual DOM (representing the updated UI).
    - During the diffing phase, React performs a depth-first traversal of both trees, comparing corresponding elements (nodes) in the old and new trees.
 
 3. **Determination of Differences:**
+
    - React's diffing algorithm determines differences by comparing various attributes and properties of the elements, such as element types, keys (used for lists), and props.
    - It identifies three types of changes:
      - **Deletions:** Elements that exist in the old tree but not in the new tree.
@@ -738,17 +769,18 @@ Here's how the diffing algorithm works conceptually:
      - **Updates:** Elements that exist in both trees but have differences in props or attributes.
 
 4. **Reconciliation Process:**
+
    - After identifying the differences, React creates a minimal set of instructions (a "diffing patch") to update the actual DOM to match the new Virtual DOM.
    - The reconciliation process involves adding, updating, or removing DOM nodes as needed based on the differences found.
 
 5. **Efficient Updates:**
+
    - React optimizes updates by batching multiple changes together. Instead of updating the real DOM for every single change, React combines multiple changes and applies them in a single batch.
    - The diffing algorithm's efficiency, coupled with batched updates, helps minimize the performance overhead of modifying the DOM.
 
 6. **Keyed Lists:** React places special emphasis on keyed lists (e.g., lists of components or elements) to efficiently update them. Using unique keys for list items helps React accurately determine which items have been added, removed, or reordered.
 
 By performing this process efficiently, React minimizes the number of DOM manipulations needed when changes occur in the UI. This results in a smoother user experience and better overall performance, especially in complex applications. The diffing algorithm is a crucial part of what makes React an efficient and powerful library for building user interfaces.
-
 
 ## useEffect Hook
 
@@ -757,7 +789,7 @@ The `useEffect` hook is a fundamental part of React's functional component lifec
 Here's how you can use the `useEffect` hook in a functional component:
 
 ```jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 function MyComponent() {
   const [data, setData] = useState(null);
@@ -772,7 +804,7 @@ function MyComponent() {
     // You can perform your side effects here, such as data fetching.
 
     // For example, let's simulate fetching data from an API:
-    fetch('https://api.example.com/data')
+    fetch("https://api.example.com/data")
       .then((response) => response.json())
       .then((result) => {
         setData(result);
@@ -786,15 +818,7 @@ function MyComponent() {
     };
   }, []); // The empty array means this effect has no dependencies, so it runs once after initial render.
 
-  return (
-    <div>
-      {data ? (
-        <p>Data: {data}</p>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
-  );
+  return <div>{data ? <p>Data: {data}</p> : <p>Loading...</p>}</div>;
 }
 
 export default MyComponent;
@@ -810,3 +834,32 @@ In the example above:
 
 You can also specify dependencies in the dependency array to control when the effect should run based on changes to specific props or state variables. If the array is empty, the effect runs only after the initial render and when the component unmounts. If you omit the array, the effect runs after every render.
 
+## React Route
+
+React Router is a popular library for handling routing in React applications. It allows you to create single-page applications (SPAs) with multiple views or pages that can be navigated to using URLs. React Router helps you manage the application's UI state and URL in sync, making it easier to create complex, dynamic web applications.
+
+Make sure to install React Router using npm :
+
+```
+npm install react-router-dom
+```
+
+### <RouterProvider/>
+
+React Router can be provided to the entire application using the <RouterProvider> component (from react-router-dom) and including a router attribute.
+
+It will provide the routing configuration to our App.
+
+### useRouteError
+
+This hook gives us more information about the error occured in webpage.
+
+### <Link />
+
+A <Link> is an element that lets the user navigate to another page by clicking or tapping on it. In react-router-dom, a <Link> renders an accessible <a> element with a real href that points to the resource it's linking to. This means that things like right-clicking a <Link> work as you'd expect. You can use <Link reloadDocument> to skip client side routing and let the browser handle the transition normally (as if it were an <a href>).
+
+A relative <Link to> value (that does not begin with /) resolves relative to the parent route, which means that it builds upon the URL path that was matched by the route that rendered that <Link>. It may contain .. to link to routes further up the hierarchy. In these cases, .. works exactly like the command-line cd function; each .. removes one segment of the parent path.
+
+### <Outlet />
+
+An <Outlet> should be used in parent route elements to render their child route elements. This allows nested UI to show up when child routes are rendered. If the parent route matched exactly, it will render a child index route or nothing if there is no index route.

@@ -1,20 +1,20 @@
 import Logo from "../assets/logo.png";
 import CartImg from "../assets/cart.png";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
 
   return (
     <nav className="nav-bar">
-      <Link to="/">
+      <NavLink to="/">
         <img src={Logo} alt="logo"></img>
-      </Link>
+      </NavLink>
       <h1>Food Hub</h1>
       <ul>
         <li>
-          <Link to="/offers">Offers</Link>
+          <NavLink to="/offers">Offers</NavLink>
         </li>
         <li
           onClick={() => {
