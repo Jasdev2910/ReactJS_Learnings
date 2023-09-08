@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import MenuItem from "./MenuItem";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
+
+  const { resId } = useParams();
 
   useEffect(() => {
     fetchMenu();
@@ -10,7 +14,9 @@ const RestaurantMenu = () => {
 
   const fetchMenu = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.196971&lng=81.289519&restaurantId=257006&catalog_qa=undefined&submitAction=ENTER"
+      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.196971&lng=81.289519&restaurantId=" +
+        resId +
+        "&catalog_qa=undefined&submitAction=ENTER"
     );
     const json = await data.json();
 

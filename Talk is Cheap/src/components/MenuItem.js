@@ -15,7 +15,7 @@ const MenuItem = (props) => {
             }
             alt="img"
           ></img>
-          <button>add+</button>
+          <button>Add+</button>
         </div>
       </div>
       <div className="divider"></div>
