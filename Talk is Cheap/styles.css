@@ -171,3 +171,67 @@ h4 {
   border-radius: 25px;
   background: #ededed;
 }
+
+/* RestaurantMenu */
+
+.menu {
+  max-width: 800px;
+  min-height: 800px;
+  margin: 20px auto 0;
+}
+.resInfo-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10px;
+  padding: 20px 0;
+}
+.resInfo-card-footer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+
+  margin: 0 10px;
+  padding: 20px 0;
+}
+
+.resInfo-menu {
+  margin: 0 10px;
+  padding: 20px 0;
+}
+
+/* MenuItem */
+.menu-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.resInfo-menu-item-card {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+.resInfo-menu-item-card-deatils {
+  position: relative;
+}
+.resInfo-menu-item-card-deatils img {
+  width: 118px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.resInfo-menu-item-card-deatils button {
+  position: absolute;
+  border: 0;
+  outline: none;
+  top: 75px;
+  left: 27px;
+  width: 70px;
+  height: 30px;
+  border-radius: 10px;
+}
+.divider {
+  border-bottom: 0.5px solid #bebdbd;
+  height: 0.5px;
+  margin: 20px 0;
+}
