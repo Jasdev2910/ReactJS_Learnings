@@ -94,19 +94,19 @@ a {
   left: 120px;
 }
 .card-container {
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: flex-start;
+  /* flex-direction: row; */
+  /* justify-content: flex-start; */
   padding: 50px 55px 50px;
   margin: 0px 35px;
+  grid-template-columns: auto auto auto auto;
 }
 .card {
   /* transition: all 0.05s ease 0s; */
   width: 250px;
   height: 320px;
   margin: 10px;
-  display: grid;
   padding: 10px;
   cursor: pointer;
   text-align: left;
