@@ -864,3 +864,294 @@ A relative `<Link to>` value (that does not begin with /) resolves relative to t
 ### `<Outlet />`
 
 An `<Outlet>` should be used in parent route elements to render their child route elements. This allows nested UI to show up when child routes are rendered. If the parent route matched exactly, it will render a child index route or nothing if there is no index route.
+
+## Class-Based Components
+
+In React, class-based components were a way to create and manage components before the introduction of functional components with hooks. Class-based components are still supported in React, but functional components are now the recommended approach for building UI components.
+
+Here's how you can create a class-based component in React:
+
+```jsx
+import React, { Component } from "react";
+
+class MyComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      // Initialize component state here
+    };
+  }
+
+  componentDidMount() {
+    // Code to run after the component is mounted
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // Code to run after the component's state or props change
+  }
+
+  componentWillUnmount() {
+    // Cleanup code before the component is unmounted
+  }
+
+  render() {
+    return <div>{/* JSX to render the component */}</div>;
+  }
+}
+
+export default MyComponent;
+```
+
+In a class-based component:
+
+1. You create a class that extends `React.Component`.
+2. You define the initial state of the component in the constructor using `this.state`.
+3. You can use lifecycle methods like `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` to control the behavior of your component at different stages of its lifecycle.
+4. The `render` method returns JSX to render the component's UI.
+
+However, with the introduction of React Hooks, you can achieve the same functionality in functional components, and functional components have become the preferred way to build components in React due to their simplicity and readability. Here's an example of a functional component using React Hooks:
+
+```jsx
+import React, { useState, useEffect } from "react";
+
+function MyComponent() {
+  const [state, setState] = useState(/* Initial state here */);
+
+  useEffect(
+    () => {
+      // Code to run after the component is mounted or when state/props change
+      return () => {
+        // Cleanup code before the component is unmounted
+      };
+    },
+    [
+      /* Dependency array */
+    ]
+  );
+
+  return <div>{/* JSX to render the component */}</div>;
+}
+
+export default MyComponent;
+```
+
+Functional components with hooks are generally more concise and easier to understand, and they have become the standard way of building React components in modern applications.
+
+### React Lifecycle methods
+
+In React, components go through a series of phases during their lifecycle. These phases can be broadly categorized into three main stages: mounting, updating, and unmounting. These stages represent the lifecycle of a component from its creation to its removal from the DOM.
+
+1. **Mounting**:
+
+   - **`constructor(props)`**:
+
+     - The constructor is the first method called when a class-based component is created.
+     - It is used for initializing component state and binding event handlers.
+     - This method is executed only once during the component's lifetime when it is first instantiated.
+
+   - **`render()`**:
+
+     - The `render` method is responsible for determining what content should be displayed in the component based on its current state and props.
+     - It returns a JSX representation of the component's UI.
+     - The `render` method is called each time the component needs to be re-rendered, which can happen due to changes in state or props.
+
+   - **`componentDidMount()`**:
+     - This method is called after the component has been rendered into the DOM.
+     - It is commonly used for tasks that require interaction with the DOM, such as making API requests, setting up event listeners, or initializing third-party libraries.
+     - `componentDidMount` is executed once, immediately after the initial rendering of the component.
+
+2. **Updating**:
+
+   - **`render()` (again)**:
+
+     - The `render` method can be called multiple times during a component's lifecycle whenever there is a change in state or props.
+     - It generates a new virtual DOM representation of the component's UI.
+
+   - **`componentDidUpdate(prevProps, prevState)`**:
+     - This method is called after the component has been updated and re-rendered due to changes in state or props.
+     - It receives the previous props and state as arguments, allowing you to compare them with the current values and perform actions based on the changes.
+     - `componentDidUpdate` is useful for handling side effects or additional updates after the render phase.
+
+3. **Unmounting**:
+
+   - **`componentWillUnmount()`**:
+     - This method is called just before the component is removed from the DOM and destroyed.
+     - It is commonly used for cleaning up resources, such as removing event listeners, canceling asynchronous operations, or any other cleanup tasks to prevent memory leaks.
+     - Once `componentWillUnmount` is executed, the component is no longer accessible.
+
+These lifecycle methods provide developers with hooks at different points in a component's existence, allowing them to control its behavior and interactions with the DOM and external resources. It's important to note that class-based components use these methods, while functional components can achieve similar functionality using React hooks like `useEffect`. Understanding these lifecycle phases is crucial for managing component behavior and optimizing performance in React applications.
+
+### constructor(props)
+
+In React class-based components, the `constructor(props)` method is a special method used to initialize the component's state and perform other setup tasks when an instance of the component is created.
+
+Here's what each part of `constructor(props)` does:
+
+1. `constructor`: This is a standard JavaScript constructor method that is called when a new instance of the class is created. In the context of React components, it's used to perform any setup or initialization that is required for the component.
+
+2. `(props)`: The `props` parameter in the constructor is the component's properties (or props) that are passed to it when it's used elsewhere in the application. You can access these props within the constructor to set the initial state or perform other tasks based on the incoming props.
+
+Here's an example of how you might use `constructor(props)` in a React class-based component:
+
+```jsx
+import React, { Component } from "react";
+
+class MyComponent extends Component {
+  constructor(props) {
+    super(props); // Call the constructor of the parent class (Component)
+
+    // Initialize the component's state
+    this.state = {
+      count: 0,
+    };
+
+    // You can also perform other setup tasks here
+    // For example, binding event handlers
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  // ...
+
+  handleClick() {
+    // Handle a click event
+    this.setState({ count: this.state.count + 1 });
+  }
+
+  render() {
+    return (
+      <div>
+        <p>Count: {this.state.count}</p>
+        <button onClick={this.handleClick}>Increment</button>
+      </div>
+    );
+  }
+}
+
+export default MyComponent;
+```
+
+In this example, the `constructor` is used to initialize the component's state (`count`), and it also binds the `handleClick` method to the component instance so that `this` inside the method refers to the component instance when it's called.
+
+However, it's important to note that in modern React, you can often avoid using the constructor and directly initialize state and handle event bindings using class properties and arrow functions or by using functional components with hooks, which can make your code more concise and readable.
+
+### super(props)
+
+In a class-based component in React, `super(props)` is used to call the constructor of the parent class, which in this case is `Component` from React's core library. The `super(props)` call is typically the first statement inside the constructor of a class-based component.
+
+Here's why you use `super(props)` in a React component:
+
+1. **Inheritance**: React components are JavaScript classes that inherit properties and behavior from the `Component` class provided by React. When you create your own class-based component by extending `Component`, you need to call the constructor of the parent class (`Component`) to ensure that it sets up any necessary internal state and behavior.
+
+2. **Passing Props**: `super(props)` is used to pass the `props` parameter to the constructor of the parent class. The `props` parameter contains the properties (or props) that are passed to your component when it's used in other parts of your application. By passing `props` to `super(props)`, you allow React to handle props correctly and set up the component with the data it needs.
+
+Here's a basic example of how `super(props)` is used in a class-based component:
+
+```jsx
+import React, { Component } from "react";
+
+class MyComponent extends Component {
+  constructor(props) {
+    super(props); // Call the constructor of the parent class (Component)
+
+    // Other initialization or state setup can be done here
+    this.state = {
+      count: 0,
+    };
+  }
+
+  // ...
+
+  render() {
+    return (
+      <div>
+        {/* Component's JSX */}
+        <p>Count: {this.state.count}</p>
+      </div>
+    );
+  }
+}
+
+export default MyComponent;
+```
+
+In this example, `super(props)` ensures that the `Component` class's constructor is called, which sets up the component's internal functionality. After that, you can perform your own initialization or state setup, as needed for your specific component.
+
+It's important to note that in modern React, with the introduction of functional components and hooks, you can often achieve the same functionality without the need for class-based components and constructors. Functional components with hooks like `useState` and `useEffect` provide a simpler and more concise way to manage component state and side effects.
+
+#### How to make a state variable & set it in class based components
+
+In class-based React components, you can create a state variable by using the `constructor` and `this.state` or by directly declaring it outside of the constructor if you're using modern JavaScript class properties. To set the state, you use the `this.setState()` method. Here's how you can do it:
+
+1. **Using the constructor**:
+
+   ```jsx
+   import React, { Component } from "react";
+
+   class MyComponent extends Component {
+     constructor(props) {
+       super(props);
+       this.state = {
+         count: 0,
+       };
+     }
+
+     render() {
+       return (
+         <div>
+           <p>Count: {this.state.count}</p>
+           <button
+             onClick={() => this.setState({ count: this.state.count + 1 })}
+           >
+             Increment
+           </button>
+         </div>
+       );
+     }
+   }
+
+   export default MyComponent;
+   ```
+
+   In this example, we initialize the `count` state variable in the component's constructor, and we use `this.setState()` to update it when the button is clicked.
+
+### componentDidMount, componentDidUpdate & componentWillUnmount
+
+`componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` are lifecycle methods in class-based React components. They allow you to perform specific actions at different stages of a component's lifecycle.
+
+1. **`componentDidMount`**:
+
+   - This lifecycle method is called after the component has been inserted into the DOM (Document Object Model).
+   - It is commonly used for performing tasks that require interaction with the DOM or external data fetching, such as making API requests, setting up event listeners, or initializing third-party libraries.
+   - `componentDidMount` runs only once, immediately after the initial rendering of the component.
+
+   ```jsx
+   componentDidMount() {
+     // Perform setup or data fetching here
+   }
+   ```
+
+2. **`componentDidUpdate`**:
+
+   - This method is called whenever the component updates or receives new props.
+   - It is useful for responding to changes in state or props and performing actions based on those changes.
+   - It receives two arguments: `prevProps` and `prevState`, which allow you to compare the previous props and state with the current ones to make decisions.
+
+   ```jsx
+   componentDidUpdate(prevProps, prevState) {
+     // Check for changes in props or state and respond accordingly
+   }
+   ```
+
+3. **`componentWillUnmount`**:
+
+   - This method is called just before the component is removed from the DOM and destroyed.
+   - It is commonly used to clean up resources or perform necessary cleanup tasks like removing event listeners or canceling asynchronous operations to prevent memory leaks.
+   - Once `componentWillUnmount` is called, the component is no longer accessible.
+
+   ```jsx
+   componentWillUnmount() {
+     // Perform cleanup tasks here
+   }
+   ```
+
+It's important to note that with the introduction of functional components and React hooks, you can achieve similar functionality with hooks like `useEffect`. Functional components with hooks have become the preferred way of managing component lifecycle and side effects in modern React applications, making the code more concise and easier to reason about.
