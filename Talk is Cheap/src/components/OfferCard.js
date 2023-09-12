@@ -1,4 +1,4 @@
-const Offer = ({ offer, condition }) => {
+const OfferCard = ({ offer, condition }) => {
   return (
     <div className="offer-card">
       <h2>{offer}</h2>
@@ -7,4 +7,4 @@ const Offer = ({ offer, condition }) => {
   );
 };
 
-export default Offer;
+export default OfferCard;
