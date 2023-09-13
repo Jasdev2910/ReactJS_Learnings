@@ -939,6 +939,8 @@ Functional components with hooks are generally more concise and easier to unders
 
 ### React Lifecycle methods
 
+![Screenshot](./Let's%20get%20classy/Screenshot.png)
+
 In React, components go through a series of phases during their lifecycle. These phases can be broadly categorized into three main stages: mounting, updating, and unmounting. These stages represent the lifecycle of a component from its creation to its removal from the DOM.
 
 1. **Mounting**:
@@ -1155,3 +1157,65 @@ In class-based React components, you can create a state variable by using the `c
    ```
 
 It's important to note that with the introduction of functional components and React hooks, you can achieve similar functionality with hooks like `useEffect`. Functional components with hooks have become the preferred way of managing component lifecycle and side effects in modern React applications, making the code more concise and easier to reason about.
+
+## Code Splitting
+
+Bundling is great, but as your app grows, your bundle will grow too. Especially if you are including large third-party libraries. You need to keep an eye on the code you are including in your bundle so that you don’t accidentally make it so large that your app takes a long time to load.
+
+To avoid winding up with a large bundle, it’s good to get ahead of the problem and start “splitting” your bundle. Code-Splitting is a feature supported by bundlers like Webpack, Rollup and Browserify (via factor-bundle) which can create multiple bundles that can be dynamically loaded at runtime.
+
+Code-splitting your app can help you “lazy-load” just the things that are currently needed by the user, which can dramatically improve the performance of your app. While you haven’t reduced the overall amount of code in your app, you’ve avoided loading code that the user may never need, and reduced the amount of code needed during the initial load.
+
+## What Is Lazy Loading?
+
+Lazy loading is a technique that allows you to defer loading some components or resources until they are actually needed or requested by the user. This way, you can improve the performance and responsiveness of your app, as well as save bandwidth and battery life. For example, if your app has a list of images, you can lazy load them, so that they are only fetched and rendered when the user scrolls to them. This can prevent loading all the images at once, which can slow down the app and consume more data.
+
+In simple terms, lazy loading is a design pattern. It allows you to load parts of your application on-demand to reduce the initial load time. For example, you can initially load the components and modules related to user login and registration. Then, you can load the rest of the components based on user navigation.
+
+You might not feel much difference when using lazy loading for small-scale applications. But it significantly impacts large-scale applications by reducing the initial load time. Ultimately, it improves both the user experience and the application’s performance.
+
+```javascript
+import { lazy } from "react";
+const MarkdownPreview = lazy(() => import("./MarkdownPreview.js"));
+```
+
+#### Advantages of Lazy Loading
+
+- Reduces initial loading time by reducing the \* bundle size.
+- Reduces browser workload.
+- Improves application performance in low bandwidth situations.
+- Improves user experience at initial loading.
+- Optimizes resource usage.
+
+#### Disadvantages of Lazy Loading
+
+- Not suitable for small-scale applications.
+- Placeholders can slow down quick scrolling.
+- Requires additional communication with the server to fetch resources.
+- Can affect SEO and ranking.
+
+### <Suspense>
+
+<Suspense> lets you display a fallback until its children have finished loading.
+
+```
+<Suspense fallback={<Loading />}>
+  <SomeComponent />
+</Suspense>
+```
+
+**Props**
+
+- **_children_**: The actual UI you intend to render. If children suspends while rendering, the Suspense boundary will switch to rendering fallback.
+- **_fallback_**: An alternate UI to render in place of the actual UI if it has not finished loading. Any valid React node is accepted, though in practice, a fallback is a lightweight placeholder view, such as a loading spinner or skeleton. Suspense will automatically switch to fallback when children suspends, and back to children when the data is ready. If fallback suspends while rendering, it will activate the closest parent Suspense boundary.
+
+Displaying a fallback while content is loading
+You can wrap any part of your application with a Suspense boundary:
+
+```
+<Suspense fallback={<Loading />}>
+  <Albums />
+</Suspense>
+```
+
+React will display your loading fallback until all the code and data needed by the children has been loaded.
