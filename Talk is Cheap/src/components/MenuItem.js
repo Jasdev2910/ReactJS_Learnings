@@ -1,3 +1,5 @@
+import { MENU_ITEM_IMG } from "../utils/constants";
+
 const MenuItem = (props) => {
   console.log(props);
   return (
@@ -9,10 +11,7 @@ const MenuItem = (props) => {
         </div>
         <div className="resInfo-menu-item-card-deatils">
           <img
-            src={
-              "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/" +
-              props?.menu?.card?.info?.imageId
-            }
+            src={MENU_ITEM_IMG + props?.menu?.card?.info?.imageId}
             alt="img"
           ></img>
           <button>Add+</button>

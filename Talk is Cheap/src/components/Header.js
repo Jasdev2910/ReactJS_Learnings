@@ -26,6 +26,9 @@ const Header = () => {
         <li>
           <Link to="/help">Help</Link>
         </li>
+        <li>
+          <Link to="/groceries">Groceries</Link>
+        </li>
         <img className="cart-img" alt="cart-logo" src={CartImg} />
       </ul>
     </nav>

@@ -1,18 +1,23 @@
-import { useEffect, useState } from "react";
 import MenuItem from "./MenuItem";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../utils/constants";
 import useRestauranrMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestauranrMenu(resId); //custom Hook
 
-  //   const { name, cuisines, areaName, avgRating, costForTwoMessage } =
-  //     resInfo?.cards[0]?.card?.card?.info;
+  console.log(resInfo);
+  // const { name, cuisines, areaName, avgRating, costForTwoMessage } =
+  //   resInfo?.cards[0]?.card?.card?.info;
+
   // const { itemCards } =
-  //   resInfo.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card;
-  //   console.log(itemCards);
+  //   resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+
+  // const { itemCards2 } =
+  //   resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+
+  // console.log(itemCards);
+
   return (
     <div className="menu">
       <div className="resInfo-container">
@@ -30,7 +35,7 @@ const RestaurantMenu = () => {
           <div className="resInfo-card-footer">
             <h3>{resInfo?.cards[0]?.card?.card?.info?.costForTwoMessage}</h3>
             <h3>
-              {resInfo?.cards[0]?.card?.card?.info?.sla?.deliveryTime} Minutes
+              {resInfo?.cards[0]?.card?.card?.info?.sla?.deliveryTime}Minutes
             </h3>
           </div>
         </div>
