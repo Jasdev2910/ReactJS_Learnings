@@ -5,7 +5,7 @@ const Card = (props) => {
   const { name, avgRating, cuisines, areaName } = resData?.info;
 
   return (
-    <div className="flex-col w-[250px] h-80 m-3 p-3 rounded-2xl hover:shadow-2xl hover:-translate-y-1 transition">
+    <div className="flex-col w-[250px] h-80 m-3 p-3 rounded-2xl cursor-pointer hover:shadow-2xl hover:-translate-y-1 transition">
       <img
         className="w-[230px] h-[170px] rounded-3xl"
         alt="img"

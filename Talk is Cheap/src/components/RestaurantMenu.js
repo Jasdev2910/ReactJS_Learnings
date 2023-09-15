@@ -19,27 +19,35 @@ const RestaurantMenu = () => {
   // console.log(itemCards);
 
   return (
-    <div className="menu">
-      <div className="resInfo-container">
-        <div className="resInfo-card">
-          <div className="resInfo-card-header">
-            <div className="resInfo-card-header-name">
-              <h1>{resInfo?.cards[0]?.card?.card?.info?.name}</h1>
-              <p>{resInfo?.cards[0]?.card?.card?.info?.cuisines.join(", ")}</p>
-              <p>{resInfo?.cards[0]?.card?.card?.info?.areaName}</p>
+    <div className="max-w-3xl mx-auto mt-5">
+      <div className="flex-col">
+        <div className="flex-col">
+          <div className="flex justify-between items-center">
+            <div className="mx-3 py-5">
+              <h1 className="text-3xl">
+                {resInfo?.cards[0]?.card?.card?.info?.name}
+              </h1>
+              <p className="font-light py-1">
+                {resInfo?.cards[0]?.card?.card?.info?.cuisines.join(", ")}
+              </p>
+              <p className="font-light py-1">
+                {resInfo?.cards[0]?.card?.card?.info?.areaName}
+              </p>
             </div>
-            <div className="resInfo-card-header-rating">
+            <div className="w-10 text-center text-lg">
               <h3>{resInfo?.cards[0]?.card?.card?.info?.avgRating}</h3>
             </div>
           </div>
-          <div className="resInfo-card-footer">
+          <div className="max-w-3xl h-[0.5px] bg-slate-300 "></div>
+          <div className="flex justify-between p-3">
             <h3>{resInfo?.cards[0]?.card?.card?.info?.costForTwoMessage}</h3>
             <h3>
-              {resInfo?.cards[0]?.card?.card?.info?.sla?.deliveryTime}Minutes
+              {resInfo?.cards[0]?.card?.card?.info?.sla?.deliveryTime} Minutes
             </h3>
           </div>
         </div>
-        <div className="resInfo-menu">
+        <div className="max-w-3xl h-[0.5px] bg-slate-300 "></div>
+        <div className="flex-col">
           {(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.hasOwnProperty(
             "carousel"
           )
