@@ -1,6 +1,7 @@
 import MenuItem from "./MenuItem";
 import { useParams } from "react-router-dom";
 import useRestauranrMenu from "../utils/useRestaurantMenu";
+import Accordian from "./Accordian";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -48,16 +49,17 @@ const RestaurantMenu = () => {
         </div>
         <div className="max-w-3xl h-[0.5px] bg-slate-300 "></div>
         <div className="flex-col">
-          {(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.hasOwnProperty(
+          {resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.hasOwnProperty(
             "carousel"
           )
-            ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
-                ?.card?.card?.itemCards
-            : resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
-                ?.card?.card?.itemCards
-          )?.map((item) => (
-            <MenuItem menu={item} />
-          ))}
+            ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.slice(
+                2
+              )
+            : resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+                ?.slice(1)
+                ?.map((category, index) => (
+                  <Accordian key={index} menu={category} />
+                ))}
         </div>
       </div>
     </div>
@@ -65,3 +67,14 @@ const RestaurantMenu = () => {
 };
 
 export default RestaurantMenu;
+
+// {(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.hasOwnProperty(
+//   "carousel"
+// )
+//   ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
+//       ?.card?.card?.itemCards
+//   : resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
+//       ?.card?.card?.itemCards
+// )?.map((item, index) => (
+//   <MenuItem key={index} menu={item} />
+// ))}
