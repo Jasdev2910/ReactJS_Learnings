@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card, { withOfferLabel } from "./Card";
 import search from "../assets/search.png";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
@@ -11,6 +11,7 @@ const Body = () => {
   const [filteredrestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSerachText] = useState("");
   const onlineStatus = useOnlineStatus();
+  const CardWithOffer = withOfferLabel(Card);
 
   useEffect(() => {
     fetchData();
@@ -85,16 +86,21 @@ const Body = () => {
           Restauraunts in Your Area
         </h2>
       </div>
-
-      <div className="flex flex-wrap flex-row justify-between px-12 mx-9">
-        {filteredrestaurant?.map((restaurant) => (
-          <Link
-            key={restaurant?.info?.id}
-            to={"/restaurant/" + restaurant?.info?.id}
-          >
-            <Card resData={restaurant} />
-          </Link>
-        ))}
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-wrap flex-row justify-between px-8 ">
+          {filteredrestaurant?.map((restaurant) => (
+            <Link
+              key={restaurant?.info?.id}
+              to={"/restaurant/" + restaurant?.info?.id}
+            >
+              {restaurant?.info?.aggregatedDiscountInfoV3 === undefined ? (
+                <Card resData={restaurant} />
+              ) : (
+                <CardWithOffer resData={restaurant} />
+              )}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
