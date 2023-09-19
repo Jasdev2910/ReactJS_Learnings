@@ -11,10 +11,15 @@ const Accordian = (props) => {
   return (
     <div className="flex-col">
       <div
-        className="max-w-3xl hover:bg-slate-100 p-5  flex justify-between cursor-pointer"
+        className="max-w-3xl hover:bg-slate-100 p-6  flex justify-between cursor-pointer shadow-lg"
         onClick={() => setISActive(!isActive)}
       >
-        <div>{props?.menu?.card?.card?.title}</div>
+        <div className="font-bold">
+          {props?.menu?.card?.card?.title}
+          {" ("}
+          {props?.menu?.card?.card?.itemCards?.length}
+          {")"}
+        </div>
         <div>
           {isActive ? (
             <img className="w-4 mr-2" src={UpArrow} alt="up" />
@@ -33,7 +38,7 @@ const Accordian = (props) => {
           ))}
         </div>
       )}
-      <div className="max-w-3xl h-[10px] bg-slate-200 "></div>
+      {/* <div className="max-w-3xl h-[10px] bg-slate-200 "></div> */}
     </div>
   );
 };

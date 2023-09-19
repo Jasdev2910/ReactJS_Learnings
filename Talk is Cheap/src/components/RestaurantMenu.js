@@ -8,16 +8,7 @@ const RestaurantMenu = () => {
   const resInfo = useRestauranrMenu(resId); //custom Hook
 
   console.log(resInfo);
-  // const { name, cuisines, areaName, avgRating, costForTwoMessage } =
-  //   resInfo?.cards[0]?.card?.card?.info;
 
-  // const { itemCards } =
-  //   resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-
-  // const { itemCards2 } =
-  //   resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-
-  // console.log(itemCards);
   const category =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
       (c) =>
@@ -69,6 +60,17 @@ const RestaurantMenu = () => {
 };
 
 export default RestaurantMenu;
+
+// const { name, cuisines, areaName, avgRating, costForTwoMessage } =
+//   resInfo?.cards[0]?.card?.card?.info;
+
+// const { itemCards } =
+//   resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+
+// const { itemCards2 } =
+//   resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+
+// console.log(itemCards);
 
 // {(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.hasOwnProperty(
 //   "carousel"
