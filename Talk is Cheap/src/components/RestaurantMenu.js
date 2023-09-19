@@ -18,6 +18,13 @@ const RestaurantMenu = () => {
   //   resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
   // console.log(itemCards);
+  const category =
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+      (c) =>
+        c?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+  console.log(category);
 
   return (
     <div className="max-w-3xl mx-auto mt-5">
@@ -49,17 +56,12 @@ const RestaurantMenu = () => {
         </div>
         <div className="max-w-3xl h-[0.5px] bg-slate-300 "></div>
         <div className="flex-col">
-          {resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.hasOwnProperty(
-            "carousel"
-          )
-            ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.slice(
-                2
-              )
-            : resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
-                ?.slice(1)
-                ?.map((category, index) => (
-                  <Accordian key={index} menu={category} />
-                ))}
+          {category?.map((category, index) => (
+            <Accordian
+              key={resInfo?.cards[0]?.card?.card?.info?.id}
+              menu={category}
+            />
+          ))}
         </div>
       </div>
     </div>
