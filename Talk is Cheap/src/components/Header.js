@@ -1,10 +1,12 @@
 import Logo from "../assets/logo.png";
 import CartImg from "../assets/cart.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
+  const { loggedInUser } = useContext(UserContext);
 
   return (
     <nav className="flex justify-between items-center bg-slate-900">
@@ -33,6 +35,7 @@ const Header = () => {
           <li className="px-6 m-2">
             <Link to="/groceries">Groceries</Link>
           </li>
+          <li className="px-6 m-2">{loggedInUser}</li>
           <img className="w-8 m-2" alt="cart-logo" src={CartImg} />
         </ul>
       </div>
