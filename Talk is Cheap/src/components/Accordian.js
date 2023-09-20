@@ -3,38 +3,35 @@ import MenuItem from "./MenuItem";
 import UpArrow from "../assets/up-arrow.png";
 import DownArrow from "../assets/down-arrow.png";
 
-const Accordian = (props) => {
-  const [isActive, setISActive] = useState(false);
-  console.log(props?.menu?.card?.card?.itemCards);
-  console.log(props?.menu?.card?.card?.itemCards?.card?.info?.id);
-
+const Accordian = ({ data, showMenuItem, setShowIndex }) => {
+  // const [isActive, setISActive] = useState(false);
+  // console.log(props?.menu?.card?.card?.itemCards);
+  // console.log(props?.menu?.card?.card?.itemCards?.card?.info?.id);
+  console.log(data);
   return (
     <div className="flex-col">
       <div
-        className="max-w-3xl hover:bg-slate-100 p-6  flex justify-between cursor-pointer shadow-lg"
-        onClick={() => setISActive(!isActive)}
+        className="max-w-3xl hover:bg-slate-5 0 hover:-translate-y-1 transition p-6  flex justify-between cursor-pointer shadow-lg"
+        onClick={() => setShowIndex()}
       >
         <div className="font-bold">
-          {props?.menu?.card?.card?.title}
+          {data?.title}
           {" ("}
-          {props?.menu?.card?.card?.itemCards?.length}
+          {data?.itemCards?.length}
           {")"}
         </div>
         <div>
-          {isActive ? (
+          {showMenuItem ? (
             <img className="w-4 mr-2" src={UpArrow} alt="up" />
           ) : (
             <img className="w-8" src={DownArrow} alt="down" />
           )}
         </div>
       </div>
-      {isActive && (
+      {showMenuItem && (
         <div className="p-5 max-w-3xl bg-slate-50 rounded-b-xl">
-          {props?.menu?.card?.card?.itemCards?.map((item, index) => (
-            <MenuItem
-              key={props?.menu?.card?.card?.itemCards?.card?.info?.id}
-              menu={item}
-            />
+          {data?.itemCards?.map((item, index) => (
+            <MenuItem key={data?.itemCards?.card?.info?.id} menu={item} />
           ))}
         </div>
       )}

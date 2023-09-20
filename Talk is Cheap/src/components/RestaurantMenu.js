@@ -1,21 +1,21 @@
-import MenuItem from "./MenuItem";
 import { useParams } from "react-router-dom";
 import useRestauranrMenu from "../utils/useRestaurantMenu";
 import Accordian from "./Accordian";
+import React, { useState } from "react";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestauranrMenu(resId); //custom Hook
+  const [showIndex, setShowIndex] = useState(0);
 
   console.log(resInfo);
 
-  const category =
+  const categories =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
       (c) =>
         c?.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  console.log(category);
 
   return (
     <div className="max-w-3xl mx-auto mt-5">
@@ -47,10 +47,12 @@ const RestaurantMenu = () => {
         </div>
         <div className="max-w-3xl h-[0.5px] bg-slate-300 "></div>
         <div className="flex-col">
-          {category?.map((category, index) => (
+          {categories?.map((category, index) => (
             <Accordian
-              key={resInfo?.cards[0]?.card?.card?.info?.id}
-              menu={category}
+              key={category?.card?.card?.title}
+              data={category?.card?.card}
+              showMenuItem={index === showIndex ? true : false}
+              setShowIndex={() => setShowIndex(index)}
             />
           ))}
         </div>
