@@ -9,7 +9,8 @@ const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const { loggedInUser } = useContext(UserContext);
 
-  const cartItems = useSelector((store) => store.cart.items);
+  const cartItems = useSelector((store) => store?.cart?.items);
+  console.log(cartItems);
 
   return (
     <nav className="flex justify-between items-center bg-slate-900">
@@ -46,7 +47,7 @@ const Header = () => {
                 alt="cart-logo"
                 src={CartImg}
               />
-              <span>( {cartItems.length} )</span>
+              <span>( {cartItems?.length} )</span>
             </div>
           </Link>
         </ul>

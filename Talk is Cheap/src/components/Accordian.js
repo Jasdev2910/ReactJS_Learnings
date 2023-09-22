@@ -31,7 +31,7 @@ const Accordian = ({ data, showMenuItem, setShowIndex }) => {
       {showMenuItem && (
         <div className="p-5 max-w-3xl bg-slate-50 rounded-b-xl">
           {data?.itemCards?.map((item, index) => (
-            <MenuItem key={data?.itemCards?.card?.info?.id} menu={item} />
+            <MenuItem key={data?.itemCards?.card?.info?.id} menuItem={item} />
           ))}
         </div>
       )}
