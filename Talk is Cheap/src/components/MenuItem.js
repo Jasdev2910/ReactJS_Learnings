@@ -25,11 +25,13 @@ const MenuItem = ({ menuItem }) => {
           </p>
         </div>
         <div className="relative w-3/12">
-          <img
-            className="w-36 h-24 object-cover rounded-xl m-auto"
-            src={MENU_ITEM_IMG + menuItem?.card?.info?.imageId}
-            alt="img"
-          ></img>
+          <div>
+            <img
+              className="w-36 h-24 object-cover rounded-xl m-auto"
+              src={MENU_ITEM_IMG + menuItem?.card?.info?.imageId}
+              alt="img"
+            ></img>
+          </div>
           <button
             className="absolute w-16 h-8 top-[80px] left-[57px] rounded-lg bg-slate-100 hover:-translate-y-1 transition text-sm hover:outline hover:outline-lime-500 hover:bg-lime-100"
             onClick={() => handleAddItem(menuItem)}
