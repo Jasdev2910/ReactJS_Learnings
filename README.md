@@ -1219,3 +1219,91 @@ You can wrap any part of your application with a Suspense boundary:
 ```
 
 React will display your loading fallback until all the code and data needed by the children has been loaded.
+
+## Higher Order Components
+
+Higher Order Components (HOCs) are a pattern used in React to enhance the functionality and reusability of components. They are a way to share behavior among components without duplicating code. HOCs are not a feature of React itself but rather a pattern that leverages the component composition model in React.
+
+#### What is a Higher Order Component (HOC)?
+
+A Higher Order Component is a function that takes a component as its argument and returns a new component with additional props and functionality. HOCs allow you to abstract and share logic, state, or UI rendering between multiple components.
+
+### Lifting the state up
+
+Lifting state up in React is a pattern used to manage and share state between components in a parent-child relationship or between sibling components. It involves moving the state from child components to a common ancestor (usually a parent or a higher-level component) so that the state can be shared and manipulated more easily. This pattern is particularly useful when multiple components need access to the same piece of state.
+
+Here's how you can lift state up in React:
+
+1. **Identify the Shared State:**
+
+   First, identify the piece of state that needs to be shared between components. This could be data, form input values, or any other relevant information.
+
+2. **Move the State Up:**
+
+   Determine which component should be responsible for managing this shared state. Create state variables and relevant functions in that component to handle the state changes. This component is often referred to as the "parent" or "container" component.
+
+3. **Pass State as Props:**
+
+   Once you've moved the state up, pass it down to the child components as props. This allows child components to access and render the state.
+
+4. **Handle State Changes:**
+
+   When child components need to update the shared state, they should communicate with the parent component by invoking callback functions passed down as props. The parent component should then update the state and trigger a re-render.
+
+5. **Update Child Components:**
+
+   As the shared state changes in the parent component, it will automatically update any child components that depend on that state because they are re-rendered with the updated props.
+
+Here's a simple example to illustrate the concept of lifting state up:
+
+```jsx
+import React, { useState } from "react";
+
+// Parent component that manages the shared state
+function ParentComponent() {
+  const [count, setCount] = useState(0);
+
+  // Callback function to update the count
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <ChildComponent count={count} incrementCount={incrementCount} />
+    </div>
+  );
+}
+
+// Child component that receives and displays the shared state
+function ChildComponent({ count, incrementCount }) {
+  return (
+    <div>
+      <button onClick={incrementCount}>Increment</button>
+      <p>Child Count: {count}</p>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <h1>Lifting State Up Example</h1>
+      <ParentComponent />
+    </div>
+  );
+}
+
+export default App;
+```
+
+In this example:
+
+- The `ParentComponent` manages the `count` state and provides the `incrementCount` function to update it.
+
+- The `ChildComponent` receives the `count` state and the `incrementCount` function as props, allowing it to display the state and trigger updates when the button is clicked.
+
+- The `App` component serves as the top-level component rendering the `ParentComponent`.
+
+By lifting the `count` state up to the `ParentComponent`, both the parent and child components can access and interact with the same state, ensuring that they stay in sync.
